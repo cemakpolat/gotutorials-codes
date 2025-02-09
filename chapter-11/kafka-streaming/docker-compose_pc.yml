@@ -1,0 +1,26 @@
+services:
+  producer:
+    build: ./producer
+  
+    environment:
+      KAFKA_BROKERS: 172.25.0.3:29092
+      KAFKA_TOPIC: my-topic
+      KAFKA_GROUPID: my-group
+      MESSAGE_COUNT: 100
+  
+  producer2:
+    build: ./producer
+  
+    environment:
+      KAFKA_BROKERS: 172.25.0.3:29092
+      KAFKA_TOPIC: my-topic
+      KAFKA_GROUPID: my-group
+      MESSAGE_COUNT: 100
+
+  consumer:
+    build: ./consumer
+    
+    environment:
+      KAFKA_BROKERS: 172.25.0.3:29092
+      KAFKA_TOPIC: my-topic
+      KAFKA_GROUPID: my-group

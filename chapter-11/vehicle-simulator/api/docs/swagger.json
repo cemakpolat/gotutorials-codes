@@ -1,0 +1,103 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a sample server for Autonomous Vehicles.",
+        "title": "Swagger Example API",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {},
+        "version": "1.0"
+    },
+    "basePath": "/",
+    "paths": {
+        "/tasks": {
+            "get": {
+                "description": "Get the information of all tasks that are being managed by the controller.",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Get all tasks",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/main.Task"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/vehicles": {
+            "get": {
+                "description": "Get the information of all the vehicles that have been connected to the controller.",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Get all vehicles",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": {
+                                    "$ref": "#/definitions/main.VehicleData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "main.Location": {
+            "type": "object",
+            "properties": {
+                "latitude": {
+                    "type": "number"
+                },
+                "longitude": {
+                    "type": "number"
+                }
+            }
+        },
+        "main.Task": {
+            "type": "object",
+            "properties": {
+                "assigned_to": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            }
+        },
+        "main.VehicleData": {
+            "type": "object",
+            "properties": {
+                "battery": {
+                    "type": "integer"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "location": {
+                    "$ref": "#/definitions/main.Location"
+                },
+                "status": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

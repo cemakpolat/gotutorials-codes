@@ -1,0 +1,3 @@
+test file 
+
+curl -X POST -F "file=@/Users/cemakpolat/Development/go-apps/go-tutorial/chapter-11/file-uploader/test.txt" http://localhost:8080/upload

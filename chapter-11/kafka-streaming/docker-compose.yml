@@ -1,0 +1,58 @@
+services:
+  cp-zookeeper:
+    image: confluentinc/cp-zookeeper:7.5.0
+    hostname: zookeeper
+    container_name: zookeeper
+    ports:
+    - "2181:2181"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+
+  cp-kafka:
+    image: confluentinc/cp-kafka:7.5.0
+    hostname: kafka
+    container_name: kafka
+    depends_on:
+    - cp-zookeeper
+    ports:
+    - "29092:29092"
+    - "9092:9092"
+    - "9997:9997"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: 'cp-zookeeper:2181'
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://cp-kafka:29092,PLAINTEXT_HOST://localhost:9092
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:29092,PLAINTEXT_HOST://0.0.0.0:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+      CONFLUENT_METRICS_REPORTER_BOOTSTRAP_SERVERS: cp-kafka:29092
+      CONFLUENT_METRICS_REPORTER_ZOOKEEPER_CONNECT: cp-zookeeper:2181
+      CONFLUENT_METRICS_REPORTER_TOPIC_REPLICAS: 1
+      CONFLUENT_METRICS_ENABLE: 'false'
+      KAFKA_JMX_PORT: 9997
+      KAFKA_MESSAGE_MAX_BYTES: 10000000
+      KAFKA_SOCKET_REQUEST_MAX_BYTES: 100001200
+      KAFKA_JMX_OPTS: -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=kafka0 -Dcom.sun.management.jmxremote.rmi.port=9997
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
+
+  
+  producer:
+    build: ./producer
+    depends_on:
+      - cp-kafka
+    environment:
+      KAFKA_BROKERS: "cp-kafka:29092"
+      KAFKA_TOPIC: my-topic
+      KAFKA_GROUPID: my-group
+  
+  consumer:
+    build: ./consumer
+    depends_on:
+      - cp-kafka
+    environment:
+      KAFKA_BROKERS: cp-kafka:29092
+      KAFKA_TOPIC: my-topic
+      KAFKA_GROUPID: my-group

@@ -1,0 +1,14 @@
+[INFO] Application started successfully.
+[DEBUG] Processing request ID: 12345
+[ERROR] Database connection failed.
+[WARN]  User login failed: Invalid credentials
+[INFO]  User logged in successfully.
+[ERROR]  File not found: config.json
+[DEBUG]  Data retrieved from cache.
+[INFO]  Processing completed.
+[ERROR]  Server error, check logs.
+[WARN]  Disk space low: 10% remaining.
+[DEBUG]  Starting background job.
+[INFO]   Background job finished.
+[ERROR]   Fatal error: system is shutting down.
+[WARN]  API rate limit exceeded.

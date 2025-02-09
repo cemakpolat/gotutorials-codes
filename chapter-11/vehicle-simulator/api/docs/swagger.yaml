@@ -1,0 +1,69 @@
+basePath: /
+definitions:
+  main.Location:
+    properties:
+      latitude:
+        type: number
+      longitude:
+        type: number
+    type: object
+  main.Task:
+    properties:
+      assigned_to:
+        type: string
+      id:
+        type: string
+      status:
+        type: string
+      type:
+        type: string
+    type: object
+  main.VehicleData:
+    properties:
+      battery:
+        type: integer
+      id:
+        type: string
+      location:
+        $ref: '#/definitions/main.Location'
+      status:
+        type: string
+    type: object
+info:
+  contact: {}
+  description: This is a sample server for Autonomous Vehicles.
+  termsOfService: http://swagger.io/terms/
+  title: Swagger Example API
+  version: "1.0"
+paths:
+  /tasks:
+    get:
+      description: Get the information of all tasks that are being managed by the
+        controller.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/main.Task'
+            type: array
+      summary: Get all tasks
+  /vehicles:
+    get:
+      description: Get the information of all the vehicles that have been connected
+        to the controller.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              additionalProperties:
+                $ref: '#/definitions/main.VehicleData'
+              type: object
+            type: array
+      summary: Get all vehicles
+swagger: "2.0"

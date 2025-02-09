@@ -1,0 +1,32 @@
+version: "3.8"
+services:
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+  emqx:
+    image: emqx/emqx:5.4.0
+    ports:
+      - "1883:1883"
+      - "8083:8083"
+      - "8084:8084"
+      - "18083:18083"
+  controller:
+    build: ./controller
+    ports:
+      - "8081:8081"
+    depends_on:
+      - redis
+      - emqx
+  vehicle:
+    build: ./vehicle
+    depends_on:
+      - controller
+      - emqx
+  api:
+    build: ./api
+    ports:
+      - "8080:8080"
+    depends_on:
+      - controller
+      - emqx
