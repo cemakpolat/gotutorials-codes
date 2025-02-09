@@ -1,0 +1,19 @@
+<h2>{{ isRegister ? 'Register' : 'Login' }}</h2>
+<form (ngSubmit)="submit()">
+  <label for="username">Username:</label>
+  <input id="username" [(ngModel)]="username" name="username" required />
+
+  <label for="password">Password:</label>
+  <input
+    id="password"
+    type="password"
+    [(ngModel)]="password"
+    name="password"
+    required
+  />
+
+  <button type="submit">{{ isRegister ? 'Register' : 'Login' }}</button>
+  <button type="button" (click)="isRegister = !isRegister">
+    Switch to {{ isRegister ? 'Login' : 'Register' }}
+  </button>
+</form>

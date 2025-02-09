@@ -1,0 +1,15 @@
+<!-- <div>
+    <h2>Chat Rooms</h2>
+    <ul>
+      <li *ngFor="let room of rooms">
+        <a [routerLink]="['/chat', room]">{{ room }}</a>
+      </li>
+    </ul>
+  </div>
+   -->
+  <h2>Available Rooms</h2>
+<ul>
+  <li *ngFor="let room of rooms" (click)="joinRoom(room)">
+    {{ room }}
+  </li>
+</ul>
