@@ -1,3 +1,4 @@
+## Kafka streaming 
 Dcd delve deeper into the Kafka example and transform it into a more complete project with enhanced functionality and a clearer structure. We'll focus on creating a producer and consumer that can be easily configured and run, providing a better demonstration of how Go interacts with Kafka.
 
 **Project: Kafka Producer and Consumer with Configuration**

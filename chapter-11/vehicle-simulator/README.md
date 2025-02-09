@@ -1,6 +1,4 @@
-Okay, that's a significant step up in complexity! Let's design a more intricate project that simulates an autonomous vehicle system using Go, incorporating MQTT for data transmission, Redis for state management, and a REST API for control and monitoring. We will also include Dockerfiles for each component and a Docker Compose file to orchestrate them.
-
-**Project: Autonomous Vehicle System Simulation**
+## Project: Autonomous Vehicle System Simulation
 
 This project will simulate a system where:
 

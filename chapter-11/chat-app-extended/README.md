@@ -1,12 +1,10 @@
 Let’s move to the next project: **A Chat Application**. This will be a real-time chat app where users can join rooms and send messages to each other.  
 
----
-
-### **Chat Application Overview**
+### **Extended Chat Application Overview**
 
 #### **Basic Features (MVP)**  
 1. Users can join a chat room.  
-2. Messages sent in a room are broadcast to all users in that room.  
+2. Messages sent in a room are broadcasted to all users in that room.  
 3. Built using WebSocket for real-time communication.
 
 #### **Enhancements (Future)**  
@@ -274,4 +272,4 @@ In this project the next steps are added
 5. angular web interface for basic operations
    
 ## Missing
-1. auth logic is not satable, it doesnt work as expected.
+1. auth logic is not stable, it doesnt work as expected.

@@ -16,7 +16,7 @@ func CollectMetrics() Metrics {
 	var memStats runtime.MemStats
 	runtime.ReadMemStats(&memStats)
 
-	var cpuUsage float64 = 0 // requires third party libraries
+	var cpuUsage float64 = 0 //TODO: requires third party libraries
 
 	return Metrics{
 		CPUUsage:       cpuUsage,

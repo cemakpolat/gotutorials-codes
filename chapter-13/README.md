@@ -1,8 +1,7 @@
-Okay, let's create a project that demonstrates the use of reflection in Go. This project will implement a simple data printer that can dynamically print the fields of any struct, including nested structs, using reflection. This will showcase how to inspect struct types and values at runtime.
 
-**Project: Dynamic Struct Printer with Reflection**
+## Project: Dynamic Struct Printer with Reflection
 
-This project will create a command-line tool that:
+This project will implement a simple data printer that can dynamically print the fields of any struct, including nested structs, using reflection. This will showcase how to inspect struct types and values at runtime. This project will create a command-line tool that:
 
 1.  Accepts a struct as input (defined in the code).
 2.  Uses reflection to iterate through the fields of the struct, including nested structs.

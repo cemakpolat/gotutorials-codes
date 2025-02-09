@@ -1,4 +1,7 @@
+## gRPC example 
+
 gRPC is a high-performance RPC framework developed by Google, often used in microservices. Go has excellent support for gRPC.
+
 Core Functionality:
 
 - Define a gRPC service using protocol buffers.

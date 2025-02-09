@@ -1,15 +1,12 @@
-Let’s move to the next project: **A Chat Application**. This will be a real-time chat app where users can join rooms and send messages to each other.  
+## **Chat Application Overview**
+This application is a real-time chat app where users can join rooms and send messages to each other.
 
----
-
-### **Chat Application Overview**
-
-#### **Basic Features (MVP)**  
+### **Basic Features (MVP)**  
 1. Users can join a chat room.  
 2. Messages sent in a room are broadcast to all users in that room.  
 3. Built using WebSocket for real-time communication.
 
-#### **Enhancements (Future)**  
+### **Enhancements (Future)**  
 1. User authentication with unique usernames.  
 2. Persistent chat history using a database.  
 3. Multiple rooms with user creation capabilities.  
@@ -258,10 +255,8 @@ Send text messages, and you'll see them broadcast to all connected clients.
 
 ---
 
-### **Step 4: Next Steps**  
+### **Step 4: Potential Next Steps**  
 1. Add support for multiple chat rooms.  
 2. Implement persistent storage for chat history using SQLite or MongoDB.  
 3. Add authentication (e.g., JWT tokens) for user management.  
 4. Build a simple front-end for better user experience.  
-
-Would you like to expand this project or move to the next one?

@@ -1,6 +1,4 @@
-Okay, let's implement the first example from Chapter 11, the "Log Analysis Tool," as a complete project with tests. This project will focus on reading, parsing, filtering, and analyzing log files, while incorporating unit tests to validate the core logic.
-
-**Project: Log Analysis Tool with Tests**
+## Project: Log Analysis Tool with Tests
 
 This project will create a command-line tool that analyzes log files, allowing users to filter log entries based on a given keyword and output the count of log entries based on their severity. The tool will also include unit tests to ensure the core analysis logic functions correctly.
 
@@ -252,7 +250,7 @@ func main() {
 }
 ```
 
-*   Imports the `analyzer` package, gets the command line arguments and calls the `AnalyzeLogs` function.
+*  Imports the `analyzer` package, gets the command line arguments and calls the `AnalyzeLogs` function.
 *  It will output to standard error if an error happens while analyzing the logs, and print to standard output all the analysis results.
 
 **How to Run the Project and Tests:**

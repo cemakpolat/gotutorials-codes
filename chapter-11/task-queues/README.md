@@ -1,6 +1,5 @@
-Okay, let's implement the second example from Chapter 11, the "Task Queue," as a complete project with tests. This project will focus on creating a simple task queue that processes tasks concurrently, including tests to verify the core worker and queue logic.
 
-**Project: Task Queue with Tests**
+## Project: Task Queue with Tests
 
 This project will create a basic task queue that allows users to enqueue tasks with different priorities, and processes them concurrently using a worker pool, while including test cases to verify its correct behaviour.
 

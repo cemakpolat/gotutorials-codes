@@ -1,57 +1,19 @@
 # Bookstore
-A simple RESTful API that allows users to perform Create, Read, Update, and Delete (CRUD) operations on a resource (e.g., books).
+This project provices a simple RESTful API that allows users to perform Create, Read, Update and Delete (CRUD) operations on books. Furthermores, the application downloads 20 books from GoogleBooks and OpenLibrary. The parsing operation due to the varied data structure for these libraries are ddifferent. Each library has its own public API. In this example, all books are stored in the memory, however, it can be combined with a NoSQL/SQL database.
 
-Features:
+The features of the project includes:
 
-Basic CRUD endpoints (/books)
-JSON data handling
-Use of mux router
+- Basic CRUD endpoints (/books)
+- JSON data handling
+- Use of mux router
 
-From scrach if you want to implement 
+To run the project, you should run the following commands:
 ```
 go mod init bookstore
 go mod tidy
 go get github.com/gorilla/mux
 go run .
 ```
-Test the code 
-
-
-GoogleBooksResponse Struct: A new struct GoogleBooksResponse is defined to parse the JSON response from Google Books. This aligns with the format of the API's search endpoint.
-fetchBooksFromGoogleBooks Function: This new function is responsible for:
-Fetching Data: It uses http.Get to retrieve book data from the Google Books API endpoint. Here we are searching for the the lord of the rings books and limiting the response to three books.
-Error Handling: Basic error handling is included for the http get request.
-JSON Decoding: The json.Unmarshal function is used to parse the JSON data into the GoogleBooksResponse struct. Error handling is added to make sure if the json is parsed correctly.
-Book Creation: It loops through the decoded Google Books response and converts each entry to our internal Book struct.
-ID Creation: The id for the book in this case is the id returned by google.
-Author: The author is taken from the Authors list. In this case we pick the first author.
-
-
-
-
-OpenLibraryResponse Struct: A new struct OpenLibraryResponse is defined to parse the JSON response from Open Library. This aligns with the format of the API's search endpoint.
-fetchBooksFromOpenLibrary Function: This new function is responsible for:
-Fetching Data: It uses http.Get to retrieve book data from the Open Library search API endpoint. Here we are searching for the the lord of the rings books and limiting the response to three books.
-Error Handling: Basic error handling is included for the http get request.
-JSON Decoding: The json.Unmarshal function is used to parse the JSON data into the OpenLibraryResponse struct. Error handling is added to make sure if the json is parsed correctly.
-Book Creation: It loops through the decoded Open Library response and converts each entry to our internal Book struct.
-ID Creation: The id for the book in this case is the index of the book in the response. You can generate a more unique id if you want to.
-Author: The author is taken from the AuthorName list. In this case we pick the first author.
-main Function Modification: The fetchBooksFromOpenLibrary() is called before the server starts, seeding the database with initial book data.
-
-
-Description: A community-driven project aiming to catalog every book ever published. It's a good source for book metadata, editions, and author information.
-Strengths:
-Free and open, no API keys required for basic use.
-Extensive catalog.
-Good for data on different editions and authors.
-Weaknesses:
-May not have as detailed information for every book as Google Books.
-Sometimes slower response times.
-Does not provide book covers easily.
-Example URL:
-https://openlibrary.org/search.json?q=the+lord+of+the+rings&limit=3
-Use code with caution.
 
 ## How to use the Book Store API
 Let's break down the `curl` commands for each operation of your API (Get a book, Create a book, Delete a book, and Update a book)

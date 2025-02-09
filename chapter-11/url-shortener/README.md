@@ -1,8 +1,5 @@
-Let’s move to the next project: **A URL Shortener**. This tool allows users to input long URLs and get a shortened version that redirects to the original link when accessed.  
-
----
-
-### **URL Shortener Overview**  
+## **URL Shortener Overview**  
+This tool allows users to input long URLs and get a shortened version that redirects to the original link when accessed.  
 
 #### **Basic Features (MVP)**:  
 1. Input a long URL and generate a short URL.  

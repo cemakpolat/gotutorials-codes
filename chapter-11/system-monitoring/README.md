@@ -1,6 +1,5 @@
-Okay, let's implement the final example from Chapter 11, the "System Monitoring Tool," as a complete project with tests. This project will focus on collecting basic system metrics and exposing them via an HTTP endpoint, and will include tests to check the core metric collection logic.
 
-**Project: System Monitoring Tool with Tests**
+##Project: System Monitoring Tool with Tests
 
 This project will create a basic system monitoring tool that collects CPU, memory, and goroutine count metrics and exposes them via a web server. It will also include unit tests for the core metric collection logic.
 
